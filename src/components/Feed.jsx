@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { Button } from "antd"
-import Upload from "./Upload"
+import UploadModal from "./UploadModal"
 
 export default function Feed() {
   const [photoList, setPhotoList] = useState()
@@ -18,7 +18,7 @@ export default function Feed() {
         ? <p>Loading...</p>
         : <p>{photoList.length}</p>
       }
-      {showUpload ? <Upload /> : null}
+      {showUpload ? <UploadModal setPhotoList={setPhotoList} setShowUpload={setShowUpload} /> : null}
       <Button
         onClick={() => setShowUpload(true)}
         className="fab"
