@@ -3,10 +3,22 @@
 }
 
 header {
+  background-color: white;
+  z-index: 1;
   padding: 1em;
   position: fixed;
   width: 100vw;
   border-bottom: 1px solid grey;
+}
+
+.photo-feed {
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.ant-card {
+  margin-bottom: 32px;
+  width: 350px;
 }
 
 .App-header {

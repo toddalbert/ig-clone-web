@@ -14,7 +14,7 @@ export default function Feed() {
       .catch(alert)
   }, [setPhotoList])
   return (
-    <section>
+    <section className="photo-feed">
       {!photoList
         ? <p>Loading...</p>
         : photoList.map(post => (
