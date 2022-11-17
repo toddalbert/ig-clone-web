@@ -20,7 +20,9 @@ export default function UploadModal({ setShowUpload, setPhotoList }) {
     // 1. Upload photo to storage bucket
     const filename = values.photo.file.name
     const imageRef = ref(storage, `photos/${filename}`)
-    uploadBytes(imageRef, values.photo.file)
+    // console.log(values.photo)
+    // return
+    uploadBytes(imageRef, values.photo.file.originFileObj)
       .then(() => console.log('upload successful'))
       .catch(err => console.error(err))
     // 2. figure out URL for that photo
@@ -30,6 +32,7 @@ export default function UploadModal({ setShowUpload, setPhotoList }) {
     newPhotoObj.photo = photoUrl
     // 4. send a post request to API
     fetch('https://express-ts-c8.web.app/photos', {
+    // fetch('http://localhost:5002/photos', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newPhotoObj)
